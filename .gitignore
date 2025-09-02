@@ -1,0 +1,61 @@
+### Node / JS
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+### Next.js build / output
+.next/
+out/
+dist/
+build/
+.cache/
+
+### Production
+/.vercel/
+
+### Env files
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+### Logs
+logs/
+*.log
+*.log.*
+
+### Tests / coverage
+coverage/
+.nyc_output/
+
+### Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+### macOS / Windows
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+### TypeScript
+*.tsbuildinfo
+
+### Misc
+*.pem
+*.key
+desktop.ini
+/.history/
+
+.github
