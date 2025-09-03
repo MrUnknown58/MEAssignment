@@ -90,7 +90,7 @@ export default function CTASection() {
                   href={f.cta}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex px-4 py-2 rounded-lg border text-sm font-semibold hover:bg-slate-50 transition-colors"
+                  className="inline-flex px-4 py-2 rounded-lg border text-sm font-semibold hover:bg-slate-50 transition-colors cursor-pointer"
                 >
                   Sign up now
                 </a>

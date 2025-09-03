@@ -125,7 +125,7 @@ function FooterLink({
   external?: boolean;
   onClick?: () => void;
 }) {
-  const base = "hover:text-slate-900 transition-colors";
+  const base = "hover:text-slate-900 transition-colors cursor-pointer";
   return (
     <li>
       <a
@@ -147,7 +147,7 @@ function SocialLink({ href, label }: { href: string; label: string }) {
       aria-label={label}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-[11px] font-medium text-slate-600 transition-colors"
+      className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-[11px] font-medium text-slate-600 transition-colors cursor-pointer"
     >
       {label.substring(0, 2)}
     </a>

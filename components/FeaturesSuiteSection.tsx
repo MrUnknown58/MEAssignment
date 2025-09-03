@@ -125,7 +125,7 @@ export default function FeaturesSuiteSection() {
                     id={`${panelBaseId}-tab-${t.id}`}
                     tabIndex={selected ? 0 : -1}
                     onClick={() => setActive(i)}
-                    className={`w-full text-left px-5 py-4 rounded-lg border transition-colors text-sm font-medium tracking-wide flex items-center gap-3 ${
+                    className={`w-full text-left px-5 py-4 rounded-lg border transition-colors text-sm font-medium tracking-wide flex items-center gap-3 cursor-pointer ${
                       selected
                         ? "border-indigo-500/60 bg-indigo-50 text-indigo-700"
                         : "border-slate-200 hover:border-slate-300 bg-white text-slate-600"

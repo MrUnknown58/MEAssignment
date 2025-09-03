@@ -111,10 +111,6 @@ export default function TestimonialsSection() {
         </motion.div>
 
         <Marquee />
-
-        <p className="mt-12 text-center text-[11px] tracking-wide text-slate-400 uppercase">
-          Testimonials generalized & anonymized for privacy.
-        </p>
       </div>
     </section>
   );

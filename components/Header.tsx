@@ -15,9 +15,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">M</span>
+          <Link href="/" className="flex space-x-2 items-center cursor-pointer">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+              <img
+                src="https://static.wixstatic.com/media/5bc310_986847197cba4b5ebf919aad737b3f29~mv2.png"
+                alt="Mobius logo"
+                className="h-7 sm:h-8 object-contain"
+              />
             </div>
             <span className="text-xl font-bold text-gray-900">Mobius</span>
           </Link>
@@ -26,25 +30,25 @@ const Header = () => {
           <nav className="hidden md:flex space-x-8">
             <Link
               href="#about"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
             >
               About
             </Link>
             <Link
               href="#services"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
             >
               Services
             </Link>
             <Link
               href="#team"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
             >
               Team
             </Link>
             <Link
               href="#contact"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
             >
               Contact
             </Link>
@@ -54,14 +58,14 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <Link
               href="#get-started"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-flex px-4 py-2 rounded-xl text-gray-400 border-2 hover:bg-black hover:text-white font-semibold text-lg shadow-md transition-colors cursor-pointer"
             >
               Get Started
             </Link>
           </div>
 
           {/* Mobile menu button */}
-          <button className="md:hidden p-2">
+          <button className="md:hidden p-2 cursor-pointer">
             <svg
               className="w-6 h-6"
               fill="none"
