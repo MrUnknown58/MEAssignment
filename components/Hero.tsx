@@ -101,7 +101,7 @@ export default function Hero() {
           animate="visible"
           custom={0.3}
         >
-          <div className="relative mx-auto w-full max-w-xl rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+          <div className="relative mx-auto w-full max-w-xl rounded-2xl overflow-hidden">
             <Image
               src="/hero-personas.png"
               alt="AI personas dashboard preview"
