@@ -1,44 +1,49 @@
 "use client";
 import Reveal from "./Reveal";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
-// Extracted content from live site evaluation
 const features = [
   {
-    title: "AI Personas",
-    description: "Role-specific AI Personas trained on your proprietary data.",
-    icon: {
-      src: "https://cdn.prod.website-files.com/5ff65c460ce39f5ec5681c6a/66dc8d697fb17781865ac5b1_personas.svg",
-      alt: "target icon",
-    },
+    title: "September Promo",
+    price: "$35/wk",
+    bullets: [
+      "Search & Curation across 1m+ jobs, every 48 hours",
+      "Up to 15 approved job apps/week — human based, company websites only",
+      "Job scan across unlimited job titles",
+    ],
+    cta: "https://www.mobiusengine.ai/plans",
   },
   {
-    title: "Deployment Options",
-    description:
-      "Company-wide AI deployment with individual user data control.",
-    icon: {
-      src: "https://cdn.prod.website-files.com/5ff65c460ce39f5ec5681c6a/66dc8d6aa60b3c794bb05154_deployment.svg",
-      alt: "Organization icon",
-    },
+    title: "Starter",
+    price: "$50/wk",
+    bullets: [
+      "Everything in Promo plan",
+      "Up to 30 job applications/week",
+      "Analyst support with 6 hour SLA",
+      "$10/week credits to Mobius resume platform",
+    ],
+    cta: "https://www.mobiusengine.ai/plans",
   },
   {
-    title: "AI Native Messaging",
-    description:
-      "Effortless communication through private DMs and group channels.",
-    icon: {
-      src: "https://cdn.prod.website-files.com/5ff65c460ce39f5ec5681c6a/66dc8d688058bad06f3aa63d_messages.svg",
-      alt: "Chat bubbles icon",
-    },
+    title: "Advanced - Custom Resumes",
+    price: "$100/wk",
+    bullets: [
+      "Customized resumes & cover letters for every application",
+      "Resume review audit report",
+      "LinkedIn profile review & ATS reformatting",
+      "HR analyst on PST hours",
+    ],
+    cta: "https://www.mobiusengine.ai/plans",
   },
   {
-    title: "Agents & APIs",
-    description:
-      "Easy-to-use workflows and integrations facilitate ongoing training.",
-    icon: {
-      src: "https://cdn.prod.website-files.com/5ff65c460ce39f5ec5681c6a/66dc8d69a0bd34b54189d17e_agents.svg",
-      alt: "Sync arrows icon",
-    },
+    title: "Resume Rebuild",
+    price: "$1000 one-time",
+    bullets: [
+      "Rebuild resume for senior/VP positioning",
+      "3x 30-minute coaching sessions",
+      "Work directly with co-founder and executive coach",
+    ],
+    cta: "https://www.mobiusengine.ai/plans",
   },
 ];
 
@@ -55,7 +60,7 @@ export default function CTASection() {
             className="text-4xl font-bold leading-tight text-center mb-14 text-slate-900"
             style={{ lineHeight: "48px", fontWeight: 700 }}
           >
-            Become AI-Native, Build on Personal AI
+            Become AI-Native, Build on Mobius
           </motion.h2>
         </Reveal>
 
@@ -67,33 +72,29 @@ export default function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="group relative flex flex-col gap-3 border border-[#dcddeb] p-4 rounded-xl hover:shadow-lg hover:border-slate-200 transition-shadow"
+              className="group relative flex flex-col gap-3 border border-[#dcddeb] p-5 rounded-xl hover:shadow-lg hover:border-slate-200 transition-shadow justify-between hover:bg-white/60"
             >
-              <div className="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center ring-1 ring-inset ring-indigo-100/60">
-                <Image
-                  src={f.icon.src}
-                  alt={f.icon.alt}
-                  width={32}
-                  height={32}
-                  className="w-8 h-8 object-contain"
-                />
-              </div>
-              <h3
-                className="text-xl font-semibold text-slate-900"
-                style={{
-                  fontSize: "18px",
-                  lineHeight: "35px",
-                  fontWeight: 600,
-                }}
-              >
+              <h3 className="text-xl font-semibold text-slate-900">
                 {f.title}
               </h3>
-              <p
-                className="text-sm leading-relaxed text-slate-500"
-                style={{ fontSize: "12px", lineHeight: "28px" }}
-              >
-                {f.description}
-              </p>
+              <div className="text-sm text-slate-700 font-medium">
+                {f.price}
+              </div>
+              <ul className="text-sm leading-relaxed text-slate-500 mt-3 space-y-2">
+                {f.bullets.map((b) => (
+                  <li key={b}>• {b}</li>
+                ))}
+              </ul>
+              <div className="mt-4">
+                <a
+                  href={f.cta}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex px-4 py-2 rounded-lg border text-sm font-semibold hover:bg-slate-50 transition-colors"
+                >
+                  Sign up now
+                </a>
+              </div>
               <div className="absolute inset-0 -z-10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br from-indigo-50 via-transparent to-cyan-50" />
             </motion.div>
           ))}

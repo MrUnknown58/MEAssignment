@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 interface FeatureTab {
-  id: string; // stable id for aria controls
+  id: string;
   label: string;
   heading: string;
   description: string;
@@ -13,58 +13,58 @@ interface FeatureTab {
 
 const tabs: FeatureTab[] = [
   {
-    id: "direct-messages",
-    label: "Direct Messages",
-    heading: "Direct Messages",
+    id: "job-intake",
+    label: "Job Intake Mastery",
+    heading: "Strategic Job Intake & Planning",
     description:
-      "Secure one-on-one conversations with your AI, ensuring confidentiality and personal interactions.",
+      "Kickstart your search with personalized intake forms that map your skills, goals, and market fit for targeted opportunities.",
     img: {
-      src: "https://cdn.prod.website-files.com/5ff65c460ce39f5ec5681c6a/66dc7c578b7957d3935b890a_DMs-min.png",
-      alt: "Personal AI App showing Direct Messaging with a persona",
+      src: "https://images.unsplash.com/photo-1617294864705-eaf3c911259f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGxhcHRvcCUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D",
+      alt: "Strategic planning for job search intake",
     },
   },
   {
-    id: "channels",
-    label: "Channels",
-    heading: "Channels",
+    id: "resume-optimization",
+    label: "Resume Revolution",
+    heading: "AI-Powered Resume Optimization",
     description:
-      "Collaborate seamlessly with teams or groups by leveraging collective AI insights in dedicated spaces.",
+      "Transform your resume into an ATS-friendly powerhouse with expert coaching, keyword alignment, and narrative refinement.",
     img: {
-      src: "https://cdn.prod.website-files.com/5ff65c460ce39f5ec5681c6a/66dc7cf3079776ced5fa48e8_channels-min.png",
-      alt: "Personal AI app showing channels with multiple personas collaborating with team members.",
+      src: "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bGFwdG9wJTIwYWVzdGhldGljfGVufDB8fDB8fHww",
+      alt: "Resume building and optimization tools",
     },
   },
   {
-    id: "apis",
-    label: "APIs",
-    heading: "API",
+    id: "application-automation",
+    label: "Application Automation",
+    heading: "Seamless Application Management",
     description:
-      "Integrate Personal AI's powerful capabilities into your existing tools and workflows for enhanced productivity.",
+      "Automate job applications across platforms, track submissions, and manage responses with AI-driven efficiency.",
     img: {
-      src: "https://cdn.prod.website-files.com/5ff65c460ce39f5ec5681c6a/66dc7e3723132c83a8aa0d7a_api-min%20(1).png",
-      alt: "Personal AI API integrating with a chrome extension.",
+      src: "https://images.unsplash.com/photo-1641275714358-b202ae1a2c78?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGxhcHRvcCUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D",
+      alt: "Application automation tools",
     },
   },
   {
-    id: "workflows",
-    label: "Workflows",
-    heading: "Workflows",
+    id: "analyst-support",
+    label: "Analyst Insights",
+    heading: "Dedicated Analyst Support",
     description:
-      "Automate complex tasks and processes with customizable AI-driven sequences tailored to your needs.",
+      "Get real-time guidance from human analysts who monitor your pipeline, provide feedback, and accelerate your progress.",
     img: {
-      src: "https://cdn.prod.website-files.com/5ff65c460ce39f5ec5681c6a/66dc7bc6930b82790d58e045_workflows3.png",
-      alt: "The Personal AI App showing many AIs responding to different queries in the same channel.",
+      src: "https://images.unsplash.com/photo-1587119582191-818eab81ce6c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fGxhcHRvcCUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D",
+      alt: "Analyst support for job seekers",
     },
   },
   {
-    id: "agents",
-    label: "Agents",
-    heading: "Agents",
+    id: "coaching-feedback",
+    label: "Coaching Excellence",
+    heading: "Executive Coaching & Feedback Loops",
     description:
-      "Deploy specialized AI models to handle specific roles or tasks, streamlining operations across your organization.",
+      "Refine your interview skills and career narrative with personalized coaching sessions and continuous improvement cycles.",
     img: {
-      src: "https://cdn.prod.website-files.com/5ff65c460ce39f5ec5681c6a/66e9cc149cc5e47b326e733e_sms-web-min.png",
-      alt: "Personal AI app showing SMS channel from incoming text messages to an AI persona's phone number.",
+      src: "https://images.unsplash.com/photo-1622127922034-dfad729edb08?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fGxhcHRvcCUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D",
+      alt: "Coaching and feedback for career growth",
     },
   },
 ];
@@ -103,11 +103,10 @@ export default function FeaturesSuiteSection() {
           className="text-3xl text-center font-bold leading-tight mb-12 text-slate-900 pb-10"
           style={{ lineHeight: "48px", fontWeight: 700 }}
         >
-          Robust Suite of Features for a Truly Personal Experience
+          Mobius Job Search Suite: Accelerate Your Career Journey
         </motion.h2>
 
         <div className="flex flex-col lg:flex-row gap-12">
-          {/* Tabs */}
           <div className="lg:w-1/3">
             <div
               role="tablist"
@@ -140,7 +139,6 @@ export default function FeaturesSuiteSection() {
             </div>
           </div>
 
-          {/* Panel */}
           <div className="lg:flex-1 min-h-[420px] p-10 rounded-3xl shadow-xl border border-[#dcddeb]">
             <AnimatePresence mode="wait">
               {tabs.map((t, i) => {
@@ -166,20 +164,13 @@ export default function FeaturesSuiteSection() {
                       </p>
                     </div>
                     {t.img && (
-                      <div className="relative rounded-xl border border-slate-200 shadow-sm overflow-hidden bg-white">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        {/* <img
-                          src={t.img.src}
-                          alt={t.img.alt}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        /> */}
+                      <div className="relative rounded-xl overflow-hidden bg-white flex justify-center items-center w-full">
                         <Image
                           src={t.img.src}
                           alt={t.img.alt}
                           width={600}
-                          height={700}
-                          className="object-cover"
+                          height={200}
+                          className="rounded-2xl"
                         />
                         <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
                       </div>

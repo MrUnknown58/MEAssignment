@@ -6,7 +6,7 @@ import { fadeInUp } from "../lib/animationVariants";
 interface RevealProps {
   className?: string;
   children: React.ReactNode;
-  delay?: number; // ms
+  delay?: number;
   /** Optional element type string; limited set to reduce union complexity */
   element?: "div" | "section" | "article" | "span";
 }

@@ -3,39 +3,22 @@ export default function SiteFooter() {
     <footer className="bg-black text-white border-t border-slate-200 text-sm">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid gap-12 md:grid-cols-3">
-          {/* Brand + Social */}
           <div className="space-y-6">
             <div className="flex items-center gap-2">
-              <span className="text-lg font-semibold">Personal.ai Clone</span>
+              <span className="text-lg font-semibold">Mobius Services</span>
             </div>
             <p className="text-xs leading-relaxed text-slate-500 max-w-xs">
-              Educational rebuild of the Personal AI marketing site. Not
-              affiliated with Human AI Labs, Inc.
+              Job search & coaching services — AI-augmented human delivery to
+              help candidates land interviews faster.
             </p>
             <div className="flex flex-wrap gap-3" aria-label="Social links">
               <SocialLink
-                href="https://community.personal.ai"
-                label="Community"
+                href="https://www.reddit.com/r/mobiusengine/"
+                label="Reddit"
               />
               <SocialLink
-                href="https://twitter.com/personalai_"
-                label="Twitter"
-              />
-              <SocialLink
-                href="https://www.linkedin.com/company/personalai"
+                href="https://www.linkedin.com/company/mobiusservices/"
                 label="LinkedIn"
-              />
-              <SocialLink
-                href="https://www.instagram.com/personalai/"
-                label="Instagram"
-              />
-              <SocialLink
-                href="https://www.facebook.com/personalai"
-                label="Facebook"
-              />
-              <SocialLink
-                href="https://www.youtube.com/channel/UC_h69pwGH3iF3RVPpBag1bw"
-                label="YouTube"
               />
             </div>
           </div>
@@ -66,10 +49,10 @@ export default function SiteFooter() {
               <ul className="space-y-2">
                 <FooterLink href="/pricing">Pricing</FooterLink>
                 <FooterLink href="/insights">Insights</FooterLink>
-                <FooterLink href="https://trust.personal.ai" external>
+                <FooterLink href="https://trust.mobiusengine.ai" external>
                   Trust Center
                 </FooterLink>
-                <FooterLink href="https://product-docs.personal.ai" external>
+                <FooterLink href="mailto:team@mobiusengine.ai" external>
                   Help Center
                 </FooterLink>
                 <FooterLink href="/blog">Blog</FooterLink>
@@ -120,10 +103,10 @@ export default function SiteFooter() {
           </div>
         </div>
         <div className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-xs text-slate-500">
-          <p>© 2024 Personal AI by Human AI Labs, Inc. (Educational clone)</p>
+          <p>© 2025 Mobius Services LLC</p>
           <p className="max-w-md leading-relaxed">
-            This project is for learning and demonstration purposes only. Some
-            links may not function in the clone.
+            1875 Mission St Ste 103 #450, San Francisco, CA 94103 · Tel:
+            650-889-6026 · founder@contact.mobiusengine.ai
           </p>
         </div>
       </div>

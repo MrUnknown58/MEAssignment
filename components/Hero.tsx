@@ -4,14 +4,13 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp } from "../lib/animationVariants";
 
-// Rotating subtitle phrases from live site hero
 const phrases = [
-  "That Multiply Your Team",
-  "That Work For You",
-  "Transform How Work Gets Done",
+  "Submit Intake Form",
+  "We search & curate jobs",
+  "You approve jobs",
+  "We apply — you interview",
 ];
 
-// Corresponding gradient color combos for each phrase
 const phraseGradients = [
   "from-blue-600 to-indigo-600",
   "from-emerald-500 to-teal-500",
@@ -43,7 +42,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
           >
-            Create Your Own AI Personas
+            Land job interviews 10x faster
           </motion.h1>
 
           <div className="h-14 md:h-16 flex items-center mt-6">
@@ -72,10 +71,8 @@ export default function Hero() {
             animate="visible"
             custom={0.2}
           >
-            Train and deploy AI teammates for 10x performance at 10% of the
-            cost. Personal AI creates an evolving AI workforce trained on
-            proprietary knowledge, streamlining workflows and driving innovation
-            across your business.
+            We customize resumes, submit applications for approved roles, and
+            help you land interviews faster.
           </motion.p>
 
           <motion.div
@@ -86,10 +83,12 @@ export default function Hero() {
             custom={0.4}
           >
             <a
-              href="#"
+              href="https://www.mobiusengine.ai/plans"
               className="inline-flex px-10 py-4 rounded-xl text-gray-400 border-2 hover:bg-black hover:text-white font-semibold text-lg shadow-md transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Get Started
+              View Plans
             </a>
           </motion.div>
         </div>
@@ -113,7 +112,6 @@ export default function Hero() {
             />
             <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5" />
           </div>
-          {/* subtle glow */}
           <div className="absolute -inset-4 -z-10 bg-gradient-to-tr from-blue-200/40 via-indigo-200/30 to-purple-200/30 blur-2xl rounded-3xl" />
         </motion.div>
       </div>

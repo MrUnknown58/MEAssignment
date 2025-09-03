@@ -10,6 +10,7 @@ import MemorySection from "../components/MemorySection";
 import CollaborationSection from "../components/CollaborationSection";
 import MetricsSection from "../components/MetricsSection";
 import FeaturesSuiteSection from "../components/FeaturesSuiteSection";
+import TestimonialsSection from "../components/TestimonialsSection";
 import ComplianceSection from "../components/ComplianceSection";
 import CTASection from "../components/CTASection";
 import SiteFooter from "../components/SiteFooter";
@@ -18,15 +19,13 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>
-          Enterprise AI Personas for Secure Workforce Scaling | Personal AI
-        </title>
+        <title>AI-Powered Job Search & Career Coaching | Mobius Engine</title>
         <meta
           name="description"
-          content="Train and deploy AI teammates for 10x performance at 10% of the cost. Personal AI creates an evolving AI workforce trained on proprietary knowledge."
+          content="Transform your career with AI-driven job search automation, resume optimization, and expert coaching. Mobius Engine delivers personalized AI solutions for professional success."
         />
       </Head>
-      <main className="min-h-screen">
+      <main className="min-h-screen pt-16">
         <Hero />
         <ClientLogosSection />
         <Features />
@@ -39,6 +38,7 @@ export default function Home() {
         <MetricsSection />
         <FeaturesSuiteSection />
         <ComplianceSection />
+        <TestimonialsSection />
         <CTASection />
         <SiteFooter />
       </main>

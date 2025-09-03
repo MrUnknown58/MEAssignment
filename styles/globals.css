@@ -4,6 +4,14 @@ html, body, #__next {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden; /* prevent horizontal scroll from wide anim elements */
+}
+
 body {
   background-color: white;
   color: rgb(30 41 59); /* slate-800 */

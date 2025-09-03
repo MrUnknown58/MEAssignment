@@ -1,177 +1,200 @@
 "use client";
-import { useEffect, useState } from "react";
 
-interface WordSpec {
+import { cn } from "../lib/utils";
+import { motion, stagger, useAnimate, useInView } from "motion/react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
+/**
+ * Shared prop contract for both typewriter variants.
+ */
+interface TypewriterWord {
   text: string;
   className?: string;
 }
-interface TypewriterProps {
-  text?: string; // simple mode
-  words?: WordSpec[]; // structured mode
-  speed?: number; // ms per character (per char in current word)
-  startDelay?: number; // initial delay
-  loop?: boolean;
+
+interface BaseTypewriterProps {
+  words: TypewriterWord[];
   className?: string;
   cursorClassName?: string;
-  cursor?: boolean;
-  wordGap?: string; // gap inserted after each completed word
-  wordDelay?: number; // delay between words
+  /** Characters per 1000ms timeline (used in smooth variant). */
+  charsPerSecond?: number;
+  /** Optional delay before animation (ms). */
+  delay?: number;
+  /** Disable the cursor blink (e.g. when embedding in headings). */
+  showCursor?: boolean;
+  /** Respect reduced motion preference (defaults true). */
+  respectReducedMotion?: boolean;
 }
 
-export default function Typewriter({
-  text,
+export const TypewriterEffect = ({
   words,
-  speed = 28,
-  startDelay = 300,
-  loop = false,
-  className = "",
-  cursorClassName = "animate-pulse",
-  cursor = true,
-  wordGap = " ",
-  wordDelay = 140,
-}: TypewriterProps) {
-  const structured = !!words && words.length > 0;
-  // plain mode state
-  const [plainDisplayed, setPlainDisplayed] = useState("");
-  const [charIndex, setCharIndex] = useState(0);
-  // structured mode indices
-  const [wordIndex, setWordIndex] = useState(0);
-  const [iteration, setIteration] = useState(0);
+  className,
+  cursorClassName,
+  charsPerSecond = 40,
+  delay = 0,
+  showCursor = true,
+  respectReducedMotion = true,
+}: BaseTypewriterProps) => {
+  const reduced = usePrefersReducedMotion(respectReducedMotion);
+  const processed = useMemo(
+    () =>
+      words.map((w) => ({
+        ...w,
+        chars: w.text.split(""),
+      })),
+    [words]
+  );
+
+  const [scope, animate] = useAnimate();
+  const isInView = useInView(scope);
 
   useEffect(() => {
-    let mounted = true;
-    let timeout: any;
-
-    const activeText = text || "";
-
-    const runPlain = () => {
-      if (!mounted) return;
-      if (charIndex === 0) {
-        timeout = setTimeout(stepPlain, startDelay);
-      } else {
-        stepPlain();
-      }
-    };
-
-    const stepPlain = () => {
-      if (!mounted) return;
-      if (charIndex < activeText.length) {
-        setPlainDisplayed((d) => d + activeText[charIndex]);
-        setCharIndex((i) => i + 1);
-        timeout = setTimeout(stepPlain, speed + Math.random() * speed * 0.4);
-      } else if (loop) {
-        timeout = setTimeout(() => {
-          setPlainDisplayed("");
-          setCharIndex(0);
-          setIteration((it) => it + 1);
-        }, 1800);
-      }
-    };
-
-    const runStructured = () => {
-      if (!mounted) return;
-      if (wordIndex === 0 && charIndex === 0) {
-        timeout = setTimeout(stepStructured, startDelay);
-      } else {
-        stepStructured();
-      }
-    };
-
-    const stepStructured = () => {
-      if (!mounted || !words) return;
-      const currentWord = words[wordIndex]?.text || "";
-      if (charIndex < currentWord.length) {
-        setCharIndex((i) => i + 1);
-        timeout = setTimeout(
-          stepStructured,
-          speed + Math.random() * speed * 0.4
-        );
-      } else if (wordIndex < words.length - 1) {
-        timeout = setTimeout(() => {
-          setWordIndex((w) => w + 1);
-          setCharIndex(0);
-        }, wordDelay);
-      } else if (loop) {
-        timeout = setTimeout(() => {
-          setWordIndex(0);
-          setCharIndex(0);
-          setIteration((it) => it + 1);
-        }, 1800);
-      }
-    };
-
-    if (structured) {
-      runStructured();
-    } else if (text) {
-      runPlain();
+    if (!isInView) return;
+    if (reduced) {
+      animate("span", { opacity: 1, display: "inline-block" }, { duration: 0 });
+      return;
     }
-
-    return () => {
-      mounted = false;
-      clearTimeout(timeout);
-    };
-  }, [
-    structured,
-    words,
-    wordIndex,
-    charIndex,
-    text,
-    speed,
-    startDelay,
-    loop,
-    iteration,
-    wordDelay,
-  ]);
-
-  if (structured && words) {
-    return (
-      <span className={className} aria-live="polite">
-        {words.map((w, i) => {
-          const isPast = i < wordIndex;
-          const isActive = i === wordIndex;
-          const visible = isPast
-            ? w.text
-            : isActive
-            ? w.text.slice(0, charIndex)
-            : "";
-          return (
-            <span key={i} className={w.className || undefined}>
-              {visible}
-              {isPast || (isActive && charIndex === w.text.length)
-                ? wordGap
-                : ""}
-            </span>
-          );
-        })}
-        {cursor && (
-          <span
-            className={
-              "inline-block w-px -ml-px bg-slate-400 align-middle " +
-              (!loop &&
-              wordIndex === words.length - 1 &&
-              charIndex === words[words.length - 1].text.length
-                ? "opacity-0"
-                : cursorClassName)
-            }
-          />
-        )}
-      </span>
+    const perChar = 1 / charsPerSecond; // approximate timing mapping
+    animate(
+      "span",
+      {
+        display: "inline-block",
+        opacity: 1,
+      },
+      {
+        duration: 0.35,
+        delay: stagger(perChar, { startDelay: delay / 1000 }),
+        ease: "easeInOut",
+      }
     );
-  }
+  }, [isInView, animate, charsPerSecond, delay, reduced]);
 
   return (
-    <span className={className} aria-live="polite">
-      {plainDisplayed}
-      {cursor && (
-        <span
-          className={
-            "inline-block w-px ml-0.5 bg-slate-400 align-middle " +
-            (plainDisplayed.length === (text?.length || 0) && !loop
-              ? "opacity-0"
-              : cursorClassName)
-          }
-        />
-      )}
-    </span>
+    <div className={cn(className)} aria-live="polite">
+      <motion.div ref={scope} className="inline">
+        {processed.map((word, idx) => (
+          <span key={`word-${idx}`} className="inline-block">
+            {word.chars.map((char, i) => (
+              <motion.span
+                key={`char-${idx}-${i}`}
+                className={cn("opacity-0", word.className)}
+                style={{ display: "inline-block" }}
+              >
+                {char}
+              </motion.span>
+            ))}
+            &nbsp;
+          </span>
+        ))}
+      </motion.div>
+      {/* {showCursor && (
+        <BlinkingCursor className={cursorClassName} reduced={reduced} large />
+      )} */}
+      <ScreenReaderFullText words={words} />
+    </div>
   );
+};
+
+export const TypewriterEffectSmooth = ({
+  words,
+  className,
+  cursorClassName,
+  charsPerSecond = 60,
+  delay = 250,
+  showCursor = true,
+  respectReducedMotion = true,
+}: BaseTypewriterProps) => {
+  const reduced = usePrefersReducedMotion(respectReducedMotion);
+  const fullText = useMemo(() => words.map((w) => w.text).join(" "), [words]);
+  const [visibleChars, setVisibleChars] = useState(0);
+  const rafRef = useRef<number | null>(null);
+  const startRef = useRef<number | null>(null);
+  const totalChars = fullText.length;
+
+  const animateChars = useCallback(
+    (ts: number) => {
+      if (startRef.current === null) startRef.current = ts;
+      const elapsed = ts - startRef.current;
+      const target = Math.min(
+        totalChars,
+        Math.floor((elapsed / 1000) * charsPerSecond)
+      );
+      if (target !== visibleChars) setVisibleChars(target);
+      if (target < totalChars) {
+        rafRef.current = requestAnimationFrame(animateChars);
+      }
+    },
+    [charsPerSecond, totalChars, visibleChars]
+  );
+
+  useEffect(() => {
+    if (reduced) {
+      setVisibleChars(totalChars);
+      return;
+    }
+    const timer = setTimeout(() => {
+      rafRef.current = requestAnimationFrame(animateChars);
+    }, delay);
+    return () => {
+      clearTimeout(timer);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [animateChars, delay, reduced, totalChars]);
+
+  let progressive = fullText.slice(0, visibleChars);
+  progressive = progressive.replace(/\n/g, " ");
+
+  return (
+    <div className={cn(className)} aria-label={fullText} aria-live="polite">
+      <span className="whitespace-nowrap tabular-nums">{progressive}</span>
+      {showCursor && (
+        <BlinkingCursor className={cursorClassName} reduced={reduced} />
+      )}
+      <ScreenReaderFullText words={words} />
+    </div>
+  );
+};
+
+/* ---------------------------- Helper Components --------------------------- */
+
+const BlinkingCursor = ({
+  className,
+  reduced,
+  large = false,
+}: {
+  className?: string;
+  reduced?: boolean;
+  large?: boolean;
+}) => {
+  if (reduced) return null;
+  return (
+    <motion.span
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+      className={cn(
+        "inline-block rounded-sm bg-blue-500 align-middle",
+        large ? "w-[4px] h-5 md:h-8 lg:h-10" : "w-[3px] h-5 md:h-8",
+        className
+      )}
+    />
+  );
+};
+
+const ScreenReaderFullText = ({ words }: { words: TypewriterWord[] }) => (
+  <span className="sr-only">{words.map((w) => w.text).join(" ")}</span>
+);
+
+/** Hook to respect reduced motion preference (default enabled). */
+function usePrefersReducedMotion(enabled: boolean) {
+  const [prefers, setPrefers] = useState(false);
+  useEffect(() => {
+    if (!enabled) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const handle = () => setPrefers(mq.matches);
+    handle();
+    mq.addEventListener("change", handle);
+    return () => mq.removeEventListener("change", handle);
+  }, [enabled]);
+  return enabled && prefers;
 }

@@ -9,19 +9,19 @@ interface FeatureItem {
 
 const primaryFeatures: FeatureItem[] = [
   {
-    title: "Multi-AI",
+    title: "Innovation",
     description:
-      "Collaborate with multiple AI personas in a single conversation and create your agentic workflow.",
+      "Continuously refine process, data and tooling to raise placement velocity & quality.",
   },
   {
-    title: "Multi-Modal",
+    title: "Efficiency",
     description:
-      "Seamlessly work with and retrieve text, images, and other media in one intuitive interface.",
+      "Respect time through tight feedback loops, meaningful automation and clear reporting.",
   },
   {
-    title: "Multi-Memory",
+    title: "Shared Success",
     description:
-      "Effortlessly utilize and recall from multiple specialized memory banks that work together.",
+      "Your outcomes define ours— alignment on goals and transparency in progress.",
   },
 ];
 
@@ -41,20 +41,23 @@ export default function Features() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center">
           <h2 className="text-3xl text-white  md:text-5xl font-bold leading-tight text-center">
-            <span className="text-6xl font-black">MODEL-3 Is Here</span>
+            <span className="text-5xl font-black">Why Choose Mobius</span>
             <br />
-            The Next Evolution of AI Teams
+            Human-led, AI-augmented career services
           </h2>
-          {/* <p className="mt-4 text-white text-lg">
-            Collaborate with multiple AI personas in a single conversation and
-            create your agentic workflow.
-          </p> */}
-          {/* add hover animation to this button */}
+          <p className="mt-4 text-white text-lg max-w-2xl text-center">
+            Trusted founding team with deep experience in cloud infrastructure
+            and recruiting. We combine advanced search and human review to
+            surface the best roles and get candidates in front of hiring teams
+            faster.
+          </p>
           <a
-            href="/model-3"
+            href="https://www.mobiusengine.ai/plans"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block mt-6 px-6 py-3 border-2 text-white font-semibold rounded-lg hover:bg-white/20 transition-colors"
           >
-            Learn More
+            View Plans
           </a>
         </div>
         <motion.div
