@@ -4,7 +4,7 @@ import { fadeInUp } from "../lib/animationVariants";
 import Image from "next/image";
 import { TypewriterEffect, TypewriterEffectSmooth } from "./Typewriter";
 
-export default function PersonasSection() {
+export default function Founder2() {
   const words = [
     { text: "Nicole" },
     { text: "is" },

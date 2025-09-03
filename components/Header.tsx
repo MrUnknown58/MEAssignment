@@ -29,25 +29,25 @@ const Header = () => {
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
             <Link
-              href="#about"
+              href="#why-mobius"
               className="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
             >
               About
             </Link>
             <Link
-              href="#services"
+              href="#features"
               className="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
             >
               Services
             </Link>
             <Link
-              href="#team"
+              href="#client-videos"
               className="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
             >
               Team
             </Link>
             <Link
-              href="#contact"
+              href="#cta"
               className="text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
             >
               Contact
@@ -57,7 +57,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="flex items-center space-x-4">
             <Link
-              href="#get-started"
+              href="#cta"
               className="inline-flex px-4 py-2 rounded-xl text-gray-400 border-2 hover:bg-black hover:text-white font-semibold text-lg shadow-md transition-colors cursor-pointer"
             >
               Get Started

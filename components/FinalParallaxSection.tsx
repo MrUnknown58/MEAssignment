@@ -10,7 +10,7 @@ import { useRef } from "react";
 */
 
 const WORDS_LEFT = ["Build", "Your", "AI", "Workforce"];
-const WORDS_RIGHT = ["With", "Personal", "AI"];
+const WORDS_RIGHT = ["Powered", "by", "Mobius"];
 
 export default function FinalParallaxSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);

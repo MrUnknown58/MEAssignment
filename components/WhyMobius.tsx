@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "../lib/animationVariants";
 
-export default function WhyPersonalAI() {
+export default function WhyMobius() {
   const steps = [
     {
       n: 1,
@@ -23,7 +23,7 @@ export default function WhyPersonalAI() {
 
   return (
     <section
-      id="about"
+      id="why-mobius"
       className="relative py-32 px-6 bg-white border-t border-slate-100 overflow-hidden"
     >
       {/* Decorative background */}

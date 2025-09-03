@@ -2,50 +2,68 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "../lib/animationVariants";
 import Image from "next/image";
-import { TypewriterEffect } from "./Typewriter";
+import { TypewriterEffect, TypewriterEffectSmooth } from "./Typewriter";
 
-export default function CollaborationSection() {
+export default function Founder1() {
+  //     Ashwin is the founder of mobiusengine.ai. He is an accomplished senior executive with over 20 years of experience in cloud infrastructure and financial services. With over 2 decades of experience at Google and JP Morgan, Ashwin held various product and GTM roles. Ashwin is an MBA holder from Yale University.
+
+  // Ashwin's vision with Mobius is to give job seekers a significant advantage in securing the roles of their dreams.
   const words = [
-    { text: "Human" },
-    { text: "analysts" },
-    { text: "executive" },
-    { text: "coaching" },
-    { text: "and" },
-    { text: "AI" },
-    { text: "tooling" },
-    { text: "operate" },
-    { text: "as" },
-    { text: "a" },
-    { text: "blended" },
-    { text: "pod." },
-    { text: "You" },
-    { text: "approve" },
-    { text: "strategy;" },
-    { text: "we" },
-    { text: "execute" },
-    { text: "sourcing," },
-    { text: "tailoring" },
-    { text: "and" },
-    { text: "submission" },
-    { text: "with" },
-    { text: "full" },
-    { text: "visibility." },
-    { text: "Feedback" },
-    { text: "cycles" },
-    { text: "tighten" },
-    { text: "weekly" },
-    { text: "so" },
-    { text: "positioning" },
-    { text: "improves" },
-    { text: "as" },
+    { text: "Ashwin" },
+    { text: "is" },
     { text: "the" },
-    { text: "market" },
-    { text: "responds." },
+    { text: "founder" },
+    { text: "of" },
+    { text: "mobiusengine.ai." },
+    { text: "He" },
+    { text: "is" },
+    { text: "an" },
+    { text: "accomplished" },
+    { text: "senior" },
+    { text: "executive" },
+    { text: "with" },
+    { text: "over" },
+    { text: "20" },
+    { text: "years" },
+    { text: "of" },
+    { text: "experience" },
+    { text: "in" },
+    { text: "cloud" },
+    { text: "infrastructure" },
+    { text: "and" },
+    { text: "financial" },
+    { text: "services." },
+    { text: "With" },
+    { text: "over" },
+    { text: "2" },
+    { text: "decades" },
+    { text: "of" },
+    { text: "experience" },
+    { text: "at" },
+    { text: "Google" },
+    { text: "and" },
+    { text: "JP" },
+    { text: "Morgan," },
+    { text: "Ashwin" },
+    { text: "held" },
+    { text: "various" },
+    { text: "product" },
+    { text: "and" },
+    { text: "GTM" },
+    { text: "roles." },
+    { text: "Ashwin" },
+    { text: "is" },
+    { text: "an" },
+    { text: "MBA" },
+    { text: "holder" },
+    { text: "from" },
+    { text: "Yale" },
+    { text: "University." },
   ];
   return (
     <section
-      id="collaboration"
-      className="relative py-12 px-6 bg-white border-t border-slate-100"
+      id="personas"
+      className="py-24 px-6 bg-slate-50 border-t border-slate-100"
     >
       <div className="max-w-5xl mx-auto text-center">
         <motion.div
@@ -55,16 +73,16 @@ export default function CollaborationSection() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className="text-sm font-medium tracking-widest text-slate-600 uppercase mb-4">
-            Data Intelligence
+            Founder Spotlight
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4 text-slate-900">
-            Harness Data & AI for Collaborative Success
+            From Cloud Scale to Candidate Impact — Ashwin’s Playbook
           </h2>
         </motion.div>
 
         <motion.div
-          className="pb-16 md:pb-24 flex justify-center"
+          className="mt-10 flex justify-center"
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
@@ -79,17 +97,17 @@ export default function CollaborationSection() {
                 viewport={{ once: true, amount: 0.3 }}
                 className="p-8 md:p-10 flex items-center md:items-start gap-4 md:w-1/3 rounded-2xl bg-white/60 backdrop-blur-sm border border-slate-100 shadow-sm"
               >
-                <div className="text-left flex flex-col items-end">
+                <div className="text-right flex flex-col items-end">
                   <div className="text-xs font-medium text-slate-500 bg-slate-100 inline-block px-3 py-1 rounded-full">
-                    ADVISOR
+                    FOUNDER
                   </div>
-                  <div className="font-bold text-lg mt-3">Alex Langowski</div>
+                  <div className="font-bold text-lg mt-3">Ashwin</div>
                   <div className="text-slate-600 whitespace-nowrap pb-4">
-                    Data & AI Executive
+                    Founder
                   </div>
                   <Image
-                    src="https://static.wixstatic.com/media/41ecaa_7713ca9839394c54a8ceaad11b7edf40~mv2.jpeg/v1/fill/w_338,h_322,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202024-01-28%20at%202_19_46%20PM.jpeg"
-                    alt="Alex Langowski"
+                    src="https://imgs.search.brave.com/SKfcYm8hZiNKgDwg7CF8C9Q-NzP60xA67IEm_lxnfXs/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMjAz/NzAwNjM4OC9waG90/by90ZWNobm9sb2d5/LWFuZC1maW5hbmNp/YWwtYWR2aXNvcnkt/c2VydmljZXMtY29u/Y2VwdC1idXNpbmVz/cy10ZWFtd29yay1h/bmQtd29ya2luZy1v/bi1kaWdpdGFsLndl/YnA_YT0xJmI9MSZz/PTYxMng2MTImdz0w/Jms9MjAmYz1aWnJn/aXFVRTJSMjdpWlQ1/dVJmYkpsOHZIMTZS/RDVZQXFMcHc1d1oz/OGc4PQ"
+                    alt="Nicole Lau"
                     width={56}
                     height={56}
                     className="rounded-full object-cover shadow"
@@ -102,12 +120,12 @@ export default function CollaborationSection() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
-                className="rounded-2xl p-6 shadow-xl border border-slate-100 flex items-start min-h-[18rem] md:min-h-[16rem] w-full md:w-2/3 bg-gradient-to-tr from-indigo-50/60 to-white"
+                className="bg-gradient-to-tr from-indigo-50/60 to-white rounded-2xl p-6 shadow-lg border border-slate-100 flex items-start min-h-[18rem] md:min-h-[16rem] w-full md:w-2/3"
               >
                 <div className="w-full relative overflow-hidden">
                   <div className="absolute -left-4 top-2 pointer-events-none">
                     <span className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-slate-100 opacity-60 tracking-tight">
-                      HYBRID
+                      REMEMBER
                     </span>
                   </div>
 
@@ -120,22 +138,6 @@ export default function CollaborationSection() {
               </motion.div>
             </div>
           </div>
-        </motion.div>
-
-        <motion.div
-          className="p-4 mb-18 flex flex-col items-center"
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <Image
-            src="https://imgs.search.brave.com/SKfcYm8hZiNKgDwg7CF8C9Q-NzP60xA67IEm_lxnfXs/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMjAz/NzAwNjM4OC9waG90/by90ZWNobm9sb2d5/LWFuZC1maW5hbmNp/YWwtYWR2aXNvcnkt/c2VydmljZXMtY29u/Y2VwdC1idXNpbmVz/cy10ZWFtd29yay1h/bmQtd29ya2luZy1v/bi1kaWdpdGFsLndl/YnA_YT0xJmI9MSZz/PTYxMng2MTImdz0w/Jms9MjAmYz1aWnJn/aXFVRTJSMjdpWlQ1/dVJmYkpsOHZIMTZS/RDVZQXFMcHc1d1oz/OGc4PQ"
-            alt="Message asking the AI to create a quarterly business report"
-            width={600}
-            height={600}
-            className="object-cover"
-          />
         </motion.div>
       </div>
     </section>

@@ -52,14 +52,14 @@ export default function SiteFooter() {
                 <FooterLink href="https://trust.mobiusengine.ai" external>
                   Trust Center
                 </FooterLink>
-                <FooterLink href="mailto:team@mobiusengine.ai" external>
+                <FooterLink href="mailto:support@mobiusengine.ai" external>
                   Help Center
                 </FooterLink>
                 <FooterLink href="/blog">Blog</FooterLink>
                 <FooterLink href="/community-guidelines">
                   Community Guidelines
                 </FooterLink>
-                <FooterLink href="mailto:team@personal.ai" external>
+                <FooterLink href="mailto:contact@mobiusengine.ai" external>
                   Contact Us
                 </FooterLink>
                 <FooterLink
@@ -83,7 +83,6 @@ export default function SiteFooter() {
               </h3>
               <ul className="space-y-2">
                 <FooterLink href="#features">Features</FooterLink>
-                <FooterLink href="#personas">Personas</FooterLink>
                 <FooterLink href="#privacy">Privacy</FooterLink>
                 <FooterLink href="#memory">Memory</FooterLink>
                 <FooterLink href="#compliance">Compliance</FooterLink>

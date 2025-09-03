@@ -163,18 +163,11 @@ export default function MemorySection() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <Image
-            src="/maci-profile.png"
+            src="https://imgs.search.brave.com/jAMIcArNhb0vwqV0XNz2G0Nxu-2X5YjpK4R2_jgoTUQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9jb21t/dW5pY2F0aW9uLXdl/YnNpdGVzLWUtbWFp/bC10ZWxlcGhvbmUt/Y2hhbm5lbHMtdG8t/Y29udGFjdC1idXNp/bmVzcy1jaGF0LWN1/c3RvbWVycy1ob3Rs/aW5lLXdvb2Rlbi1k/aWNlLTIxNDM5MTYy/OS5qcGc"
             alt="AI response showing key events for Alpine Tech Solutions"
             width={600}
             height={400}
-            className="object-cover"
-          />
-          <Image
-            src="/liam-persona.png"
-            alt="AI response showing key events for Alpine Tech Solutions"
-            width={600}
-            height={400}
-            className="object-cover"
+            className="object-cover rounded-xl"
           />
         </motion.div>
       </div>

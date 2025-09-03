@@ -169,9 +169,9 @@ export default function PrivacySection() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <Image
-            src="/privacy-flowchart.png"
+            src="https://imgs.search.brave.com/tNjJ-GP0ij4vJ5qUf0d_lw0_g2yMMn3dhhB651t5iSA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jcmVh/dGVseS5jb20vc3Rh/dGljL2Fzc2V0cy9n/dWlkZXMvZmxvd2No/YXJ0LWd1aWRlLWZs/b3djaGFydC10dXRv/cmlhbC9mbG93Y2hh/cnQtZm9yLXByb2dy/YW1taW5nLXpqVWcy/QjlPbHhhLnN2Zw"
             alt="Privacy flowchart showing AI models and private data flow"
-            width={700}
+            width={500}
             height={400}
             className="object-cover"
           />

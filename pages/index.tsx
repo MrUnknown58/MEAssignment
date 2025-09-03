@@ -2,9 +2,9 @@ import Head from "next/head";
 import Hero from "../components/Hero";
 import ClientLogosSection from "../components/ClientLogosSection";
 import Features from "../components/Features";
-import WhyPersonalAI from "../components/WhyPersonalAI";
-import PersonasSection from "../components/PersonasSection";
-import PersonaOrgSection from "../components/PersonaOrgSection";
+import WhyMobius from "../components/WhyMobius";
+import Founder2 from "../components/Founder2";
+import CandidateOrgSection from "../components/CandidateOrgSection";
 import PrivacySection from "../components/PrivacySection";
 import MemorySection from "../components/MemorySection";
 import CollaborationSection from "../components/CollaborationSection";
@@ -14,6 +14,8 @@ import TestimonialsSection from "../components/TestimonialsSection";
 import ComplianceSection from "../components/ComplianceSection";
 import CTASection from "../components/CTASection";
 import SiteFooter from "../components/SiteFooter";
+import Founder1 from "../components/Founder1";
+import VideoTestimonialsSection from "../components/VideoTestimonialsSection";
 
 export default function Home() {
   return (
@@ -29,9 +31,11 @@ export default function Home() {
         <Hero />
         <ClientLogosSection />
         <Features />
-        <WhyPersonalAI />
-        <PersonasSection />
-        <PersonaOrgSection />
+        <WhyMobius />
+        <Founder1 />
+        <VideoTestimonialsSection />
+        <Founder2 />
+        <CandidateOrgSection />
         <PrivacySection />
         <MemorySection />
         <CollaborationSection />
