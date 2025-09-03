@@ -7,4 +7,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  darkMode: false, // Disable dark mode to enforce light mode only
 };
