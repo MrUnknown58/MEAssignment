@@ -78,6 +78,29 @@ Remove-Item -Recurse -Force .next
 npm run build
 ```
 
+## 📦 Static Export (Fully Static Hosting)
+
+Configured via `output: 'export'` in `next.config.mjs`.
+
+```powershell
+npm run build   # generates ./out automatically
+```
+
+Serve locally to verify:
+
+```powershell
+npm install -g serve   # if not already installed
+serve .\out
+```
+
+Deploy by uploading the contents of `out/` to any static host (S3 + CloudFront, GitHub Pages, Netlify, etc.).
+
+Notes:
+
+- Images use `unoptimized` mode (plain <img>) due to static output
+- In-page anchor navigation only; no dynamic routing needed
+- Ensure host serves `out/index.html` at the root
+
 ## 🧮 Feature Implementation Notes
 
 | Feature             | Approach                                                         |
